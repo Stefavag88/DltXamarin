@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rxui:ReactiveContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:DilotiXamarin"
+    xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    x:TypeArguments="local:MainPageViewModel"
+    x:Class="DilotiXamarin.MainPage">
+
+    <StackLayout
+        Margin="10"
+        Orientation="Horizontal"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+       
+        <StackLayout
+            IsClippedToBounds="True"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <Label x:Name="Clicks" 
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"
+           Text="{Binding CurrentNum, Mode=OneWay}"/>
+            <StackLayout 
+                Orientation="Horizontal">
+                <Button 
+                Command="{Binding UpdateCommand}"
+                CommandParameter="+"
+                Text="+"/>
+                <Button 
+                Command="{Binding UpdateCommand}"
+                CommandParameter="-"
+                Text="-"/>
+                <ffimageloadingsvg:SvgCachedImage Source="refresh.svg" >
+                    <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            NumberOfTapsRequired="1" 
+                            Command="{Binding UpdateCommand}"
+                            CommandParameter="C"/>
+                    </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                </ffimageloadingsvg:SvgCachedImage>
+                <Button 
+                Command="{Binding UpdateCommand}"
+                CommandParameter="U"
+                Text="Undo"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Vertical">
+            <Label 
+                Text="History"
+                FontSize="Medium"
+                FontAttributes="Bold"/>
+            <ScrollView HorizontalScrollBarVisibility="Default">
+                <Label
+           Margin="0,0,30,0"
+           HorizontalOptions="EndAndExpand"
+           VerticalOptions="End"
+           WidthRequest="30"
+           Text="{Binding HistoryString, Mode=OneWay}"/>
+            </ScrollView>
+        </StackLayout>
+
+    </StackLayout>
+
+
+</rxui:ReactiveContentPage>
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="DilotiXamarin.MainPage"
+	xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    Title="Basic XAML Example">
+    <ContentPage.Content>
+        <ffimageloadingsvg:SvgCachedImage  
+Source="refresh.svg"
+LoadingPlaceholder="LoaderImage"
+ErrorPlaceholder= "ErrorImage"
+CacheDuration="50"
+RetryCount="3"
+RetryDelay="600"
+DownsampleToViewSize="True"
+/>
+
+    </ContentPage.Content>
+</ContentPage>-->
+
+
+
