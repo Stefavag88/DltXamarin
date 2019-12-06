@@ -2,8 +2,6 @@
 <rxui:ReactiveContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:DilotiXamarin"
     xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
@@ -34,7 +32,7 @@
                 Command="{Binding UpdateCommand}"
                 CommandParameter="-"
                 Text="-"/>
-                <ffimageloadingsvg:SvgCachedImage Source="refresh.svg" >
+                <ffimageloadingsvg:SvgCachedImage Source="Assets/refresh.svg" >
                     <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                         <TapGestureRecognizer 
                             NumberOfTapsRequired="1" 
@@ -42,10 +40,14 @@
                             CommandParameter="C"/>
                     </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                 </ffimageloadingsvg:SvgCachedImage>
-                <Button 
-                Command="{Binding UpdateCommand}"
-                CommandParameter="U"
-                Text="Undo"/>
+                <ffimageloadingsvg:SvgCachedImage Source="Assets/undo.svg" >
+                    <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            NumberOfTapsRequired="1"
+                            Command="{Binding UpdateCommand}"
+                            CommandParameter="U"/>
+                    </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                </ffimageloadingsvg:SvgCachedImage>
             </StackLayout>
         </StackLayout>
         <StackLayout Orientation="Vertical">

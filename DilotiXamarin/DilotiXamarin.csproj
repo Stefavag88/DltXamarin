@@ -21,10 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="refresh.svg">
+    <None Update="Assets\refresh.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="test.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\undo.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
