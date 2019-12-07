@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rxui:ReactiveContentView
+    x:Class="DilotiXamarin.HandView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:local="clr-namespace:DilotiXamarin"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    x:TypeArguments="local:HandViewModel"
+    mc:Ignorable="d">
+    <StackLayout>
+        <ListView
+            Margin="0"
+            BackgroundColor="White"
+            ItemsSource="{Binding MyCards}"
+            Rotation="270">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="2">
+                            <Label Text="{Binding Name}" />
+                            <ffimageloadingsvg:SvgCachedImage
+                                Rotation="90"
+                                Source="{Binding ImagePath}"
+                                WidthRequest="120">
+                                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" />
+                                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            </ffimageloadingsvg:SvgCachedImage>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</rxui:ReactiveContentView>

@@ -1,97 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<rxui:ReactiveContentPage 
+<rxui:ReactiveContentPage
+    x:Class="DilotiXamarin.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:local="clr-namespace:DilotiXamarin"
     xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-    x:TypeArguments="local:MainPageViewModel"
-    x:Class="DilotiXamarin.MainPage">
+    x:TypeArguments="local:MainPageViewModel">
 
     <StackLayout
         Margin="10"
-        Orientation="Horizontal"
         HorizontalOptions="FillAndExpand"
+        Orientation="Horizontal"
         VerticalOptions="FillAndExpand">
-       
+
         <StackLayout
-            IsClippedToBounds="True"
             HorizontalOptions="CenterAndExpand"
+            IsClippedToBounds="True"
             VerticalOptions="CenterAndExpand">
-            <Label x:Name="Clicks" 
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="CenterAndExpand"
-           Text="{Binding CurrentNum, Mode=OneWay}"/>
-            <StackLayout 
-                Orientation="Horizontal">
-                <Button 
-                Command="{Binding UpdateCommand}"
-                CommandParameter="+"
-                Text="+"/>
-                <Button 
-                Command="{Binding UpdateCommand}"
-                CommandParameter="-"
-                Text="-"/>
-                <ffimageloadingsvg:SvgCachedImage Source="Assets/refresh.svg" >
+            <Label
+                x:Name="Clicks"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding CurrentNum, Mode=OneWay}"
+                VerticalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <Button
+                    Command="{Binding UpdateCommand}"
+                    CommandParameter="+"
+                    Text="+" />
+                <Button
+                    Command="{Binding UpdateCommand}"
+                    CommandParameter="-"
+                    Text="-" />
+                <ffimageloadingsvg:SvgCachedImage Source="Assets/refresh.svg">
                     <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer 
-                            NumberOfTapsRequired="1" 
+                        <TapGestureRecognizer
                             Command="{Binding UpdateCommand}"
-                            CommandParameter="C"/>
+                            CommandParameter="C"
+                            NumberOfTapsRequired="1" />
                     </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                 </ffimageloadingsvg:SvgCachedImage>
-                <ffimageloadingsvg:SvgCachedImage Source="Assets/undo.svg" >
+                <ffimageloadingsvg:SvgCachedImage Source="Assets/undo.svg">
                     <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer 
-                            NumberOfTapsRequired="1"
+                        <TapGestureRecognizer
                             Command="{Binding UpdateCommand}"
-                            CommandParameter="U"/>
+                            CommandParameter="U"
+                            NumberOfTapsRequired="1" />
                     </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
                 </ffimageloadingsvg:SvgCachedImage>
             </StackLayout>
+            <local:HandView
+                Margin="0,200,0,0"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill" />
         </StackLayout>
         <StackLayout Orientation="Vertical">
-            <Label 
-                Text="History"
+            <Label
+                FontAttributes="Bold"
                 FontSize="Medium"
-                FontAttributes="Bold"/>
+                Text="History" />
             <ScrollView HorizontalScrollBarVisibility="Default">
                 <Label
-           Margin="0,0,30,0"
-           HorizontalOptions="EndAndExpand"
-           VerticalOptions="End"
-           WidthRequest="30"
-           Text="{Binding HistoryString, Mode=OneWay}"/>
+                    Margin="0,0,30,0"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{Binding HistoryString, Mode=OneWay}"
+                    VerticalOptions="End"
+                    WidthRequest="30" />
             </ScrollView>
         </StackLayout>
-
     </StackLayout>
-
-
 </rxui:ReactiveContentPage>
-
-
-
-<!--<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="DilotiXamarin.MainPage"
-	xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-    Title="Basic XAML Example">
-    <ContentPage.Content>
-        <ffimageloadingsvg:SvgCachedImage  
-Source="refresh.svg"
-LoadingPlaceholder="LoaderImage"
-ErrorPlaceholder= "ErrorImage"
-CacheDuration="50"
-RetryCount="3"
-RetryDelay="600"
-DownsampleToViewSize="True"
-/>
-
-    </ContentPage.Content>
-</ContentPage>-->
 
 
 
